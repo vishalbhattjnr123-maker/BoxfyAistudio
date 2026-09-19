@@ -315,31 +315,40 @@ window.closeProjectModal = function () {
     }, 400);
 }
 
-window.openVideo = function (youtubeId) {
-    const modal = document.getElementById('video-modal');
-    const player = document.getElementById('youtube-player');
+window.openVideo = function (urlOrId) {
+    // Extract ID just in case a full URL is passed directly in some cases
+    let videoId = urlOrId;
+    if (urlOrId.includes('youtu.be/')) videoId = urlOrId.split('youtu.be/')[1].split('?')[0];
+    else if (urlOrId.includes('youtube.com/embed/')) videoId = urlOrId.split('youtube.com/embed/')[1].split('?')[0];
 
-    player.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`;
+    // Clean ?si param if present
+    if (videoId.includes('?si=')) videoId = videoId.split('?si=')[0];
+
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('video-modal-content');
+    const wrapper = document.getElementById('video-modal-wrapper');
+
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
     modal.classList.remove('opacity-0', 'pointer-events-none');
     document.body.style.overflow = 'hidden';
 
     setTimeout(() => {
-        document.getElementById('video-modal-content').classList.remove('scale-95', 'opacity-0');
-        document.getElementById('video-modal-content').classList.add('scale-100', 'opacity-100');
+        wrapper.classList.remove('scale-95', 'opacity-0');
+        wrapper.classList.add('scale-100', 'opacity-100');
     }, 50);
 };
 
 window.closeVideo = function () {
     const modal = document.getElementById('video-modal');
-    const content = document.getElementById('video-modal-content');
-    const player = document.getElementById('youtube-player');
+    const iframe = document.getElementById('video-modal-content');
+    const wrapper = document.getElementById('video-modal-wrapper');
 
-    content.classList.remove('scale-100', 'opacity-100');
-    content.classList.add('scale-95', 'opacity-0');
+    wrapper.classList.remove('scale-100', 'opacity-100');
+    wrapper.classList.add('scale-95', 'opacity-0');
     modal.classList.add('opacity-0', 'pointer-events-none');
 
     setTimeout(() => {
-        player.src = "";
+        iframe.src = "";
         document.body.style.overflow = '';
     }, 400);
 };
