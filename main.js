@@ -109,8 +109,8 @@ function renderHero() {
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 select-none">
-                    <button class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-bold transition-all shadow-[0_10px_30px_rgba(37,99,235,0.4)] flex items-center justify-center gap-3 transform hover:-translate-y-1" onclick='window.openVideo("${item.youtubeId}")'>
-                        <i class="fas fa-play"></i> Watch Project
+                    <button class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-bold transition-all shadow-[0_10px_30px_rgba(37,99,235,0.3)] flex items-center justify-center gap-3 transform hover:-translate-y-1 w-full sm:w-auto" id="pm-play-btn" onclick="window.openVideo('https://youtu.be/${item.youtubeId}')">
+                        <i class="fas fa-play"></i> Watch Full Video
                     </button>
                     <button class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-3 transform hover:-translate-y-1" onclick='document.getElementById("showcase-section").scrollIntoView({behavior:"smooth"})'>
                         Explore Showcase <i class="fas fa-arrow-right"></i>
@@ -211,22 +211,29 @@ function renderShowcase(filter) {
     const grid = document.getElementById('showcase-grid');
     if (!grid) return;
 
-    // Function to render an iframe video card
+    // Premium individual card that opens the modal
     const createCard = (item) => `
-        <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 bg-white">
-            <div class="w-full aspect-video relative bg-gray-100">
-                <iframe
-                    src="https://www.youtube.com/embed/${item.youtubeId}"
-                    title="${item.category} Video"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    class="absolute inset-0 w-full h-full border-none">
-                </iframe>
+        <div class="group cursor-pointer flex flex-col gap-3 relative h-full w-full snap-center" onclick='window.openProjectModal(${item.id})'>
+            <div class="w-full aspect-video rounded-2xl overflow-hidden relative shadow-sm hover:shadow-xl transition-shadow border border-gray-100 bg-gray-50">
+                <img src="${item.thumbnail}" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                
+                <!-- Gradient for bottom text readability & play button contrast -->
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                
+                <!-- Always-visible, elegant Play Button -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-[0_4px_15px_rgba(0,0,0,0.2)] transform group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300 z-10" onclick='event.stopPropagation(); window.openVideo("https://youtu.be/${item.youtubeId}")'>
+                        <i class="fas fa-play ml-1 text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Durations and Tags -->
+                <div class="absolute bottom-3 right-3 bg-blue-600/90 backdrop-blur px-2 py-1 rounded-md text-[10px] font-bold text-white shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">02:45</div>
+                <div class="absolute top-3 left-3 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black text-white uppercase tracking-widest shadow-sm border border-white/20">${item.category}</div>
             </div>
-            <!-- Displaying the title below so the video container looks like a premium card -->
-            <div class="p-4 bg-white relative z-0">
-                <h4 class="text-sm font-bold text-gray-900 leading-snug line-clamp-1">${item.title}</h4>
+            <div class="px-1 flex-1 mt-2">
+                <h4 class="text-base font-black text-gray-900 leading-snug group-hover:text-blue-600 transition-colors line-clamp-2">${item.title}</h4>
+                <p class="text-xs font-medium text-[#64748B] mt-1 line-clamp-1">${item.overview}</p>
             </div>
         </div>
     `;
@@ -234,7 +241,6 @@ function renderShowcase(filter) {
     let html = '';
 
     if (filter === "ALL") {
-        // Render each category as its own distinct section block
         categoriesInfo.forEach(cat => {
             const catItems = portfolioItems.filter(i => i.category === cat.name);
             if (catItems.length === 0) return;
@@ -244,6 +250,7 @@ function renderShowcase(filter) {
                 <div class="flex justify-between items-end mb-6 pr-4 border-b border-gray-100 pb-2">
                     <h3 class="text-2xl font-black text-[#111827] tracking-tight">${cat.name}</h3>
                 </div>
+                <!-- Clean responsive grid exactly as requested: mobile 1, tablet 2, desktop 3 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                     ${catItems.map(item => createCard(item)).join('')}
                 </div>
@@ -251,7 +258,6 @@ function renderShowcase(filter) {
             `;
         });
     } else {
-        // Standard grid for specific category filter
         const items = portfolioItems.filter(i => i.category.toUpperCase() === filter);
 
         if (items.length === 0) {
@@ -260,6 +266,7 @@ function renderShowcase(filter) {
         }
 
         html += `
+        <!-- Clean responsive grid exactly as requested: mobile 1, tablet 2, desktop 3 -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-10 w-full mb-12">
             ${items.map(item => createCard(item)).join('')}
         </div>
@@ -287,12 +294,11 @@ window.openProjectModal = function (id) {
     document.getElementById('pm-overview').textContent = item.overview;
     document.getElementById('pm-tech').textContent = item.technology;
 
-    // Setup Play Button
     const playBtn = document.getElementById('pm-play-btn');
     playBtn.onclick = () => {
         closeProjectModal();
         setTimeout(() => {
-            window.openVideo(item.youtubeId);
+            window.openVideo(`https://youtu.be/${item.youtubeId}`);
         }, 400);
     };
 
@@ -315,43 +321,74 @@ window.closeProjectModal = function () {
     }, 400);
 }
 
-window.openVideo = function (urlOrId) {
-    // Extract ID just in case a full URL is passed directly in some cases
-    let videoId = urlOrId;
-    if (urlOrId.includes('youtu.be/')) videoId = urlOrId.split('youtu.be/')[1].split('?')[0];
-    else if (urlOrId.includes('youtube.com/embed/')) videoId = urlOrId.split('youtube.com/embed/')[1].split('?')[0];
+window.extractYouTubeId = function (url) {
+    if (!url) return null;
+    // Just in case it's already an ID and doesn't contain a domain
+    if (!url.includes('http') && !url.includes('.com') && !url.includes('.be')) {
+        return url;
+    }
 
-    // Clean ?si param if present
-    if (videoId.includes('?si=')) videoId = videoId.split('?si=')[0];
+    try {
+        const parsed = new URL(url);
+        if (parsed.hostname.includes('youtu.be')) {
+            return parsed.pathname.substring(1);
+        }
+        if (parsed.hostname.includes('youtube.com')) {
+            if (parsed.searchParams.get('v')) {
+                return parsed.searchParams.get('v');
+            }
+            if (parsed.pathname.startsWith('/embed/')) {
+                return parsed.pathname.split('/embed/')[1];
+            }
+        }
+    } catch (error) {
+        console.error('Invalid YouTube URL:', url);
+    }
+    return null;
+}
 
-    const modal = document.getElementById('video-modal');
+window.openVideo = function (url) {
+    const videoId = window.extractYouTubeId(url);
+
+    if (!videoId) {
+        console.error('Invalid YouTube URL:', url);
+        return;
+    }
+
     const iframe = document.getElementById('video-modal-content');
+    const modal = document.getElementById('video-modal');
+
+    // Also support my previous wrapper design just safely
     const wrapper = document.getElementById('video-modal-wrapper');
 
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    document.body.style.overflow = 'hidden';
+    iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`;
 
-    setTimeout(() => {
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100');
+
+    if (wrapper) {
         wrapper.classList.remove('scale-95', 'opacity-0');
         wrapper.classList.add('scale-100', 'opacity-100');
-    }, 50);
-};
+    }
+}
 
 window.closeVideo = function () {
-    const modal = document.getElementById('video-modal');
     const iframe = document.getElementById('video-modal-content');
+    const modal = document.getElementById('video-modal');
     const wrapper = document.getElementById('video-modal-wrapper');
 
-    wrapper.classList.remove('scale-100', 'opacity-100');
-    wrapper.classList.add('scale-95', 'opacity-0');
+    if (wrapper) {
+        wrapper.classList.remove('scale-100', 'opacity-100');
+        wrapper.classList.add('scale-95', 'opacity-0');
+    }
+
     modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.classList.remove('opacity-100');
 
     setTimeout(() => {
-        iframe.src = "";
-        document.body.style.overflow = '';
+        iframe.src = '';
     }, 400);
-};
+}
 
 // ----------------------------------------------------
 // EVENT LISTENERS & UTILS
