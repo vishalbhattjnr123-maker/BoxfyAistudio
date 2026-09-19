@@ -89,15 +89,9 @@ function renderHero() {
 
     featuredItems.forEach((item, index) => {
         const slide = document.createElement('div');
-        slide.className = 'swiper-slide relative w-full h-full bg-[#151D66]/75 flex items-center justify-center overflow-hidden';
+        slide.className = 'swiper-slide relative w-full h-full bg-transparent flex items-center justify-center overflow-hidden';
 
         slide.innerHTML = `
-            <!-- Background Image -->
-            <img src="${item.thumbnail}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover scale-105 transition-transform duration-[30s] ease-linear swiper-lazy">
-            <!-- Gradients for readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/60 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent"></div>
-            
             <!-- Content -->
             <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-end md:justify-center h-full pb-20 md:pb-0">
                 <div class="flex items-center gap-4 mb-4 select-none">

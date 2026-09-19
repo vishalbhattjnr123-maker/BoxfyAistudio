@@ -1,266 +1,764 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- SEO & Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Portfolio</title>
-    <meta name="description" content="Professional video and creative portfolio.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script type="module" crossorigin src="/assets/index-DBMSOMRh.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DhyoWFfg.css">
-</head>
-<body class="antialiased selection:bg-white selection:text-black">
+    <title>Studio.AI | Premium International Digital Entertainment & Creative Platform</title>
+    <meta name="description"
+        content="An international creative technology studio redefining digital art through 3D animation, AI cinematic filmmaking, Game Design, AR/VR, and Visual Effects.">
+    <meta property="og:title" content="Studio.AI | International Creative Production Studio">
+    <meta property="og:description"
+        content="Redefining Digital Art. We combine creative direction, AI, 3D visualization, cinematic production and immersive technology to create visual experiences built for the future.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://studio.ai/" />
 
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#050505]">
-        <!-- CHANGE LOGO HERE -->
-        <h1 class="text-3xl font-bold tracking-widest uppercase mb-4 text-white">PORTFOLIO</h1>
-        <div class="w-12 h-12 border-4 border-gray-800 border-t-white rounded-full animate-spin"></div>
-    </div>
+    <!-- Schema.org Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Studio.AI",
+      "url": "https://studio.ai",
+      "logo": "https://studio.ai/logo.png",
+      "description": "An international creative technology and digital entertainment studio focusing on AI films, 3D animation, and immersive digital experiences."
+    }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Custom CSS -->
+  <link rel="stylesheet" crossorigin href="/assets/index-5fzyBlcc.css">
+</head>
+
+<body class="antialiased selection:bg-blue-600 selection:text-white">
 
     <!-- Header -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12">
-        <div class="flex items-center justify-between">
-            <!-- Left: Logo -->
-            <div class="flex items-center gap-8">
-                <a href="#" class="text-2xl font-bold tracking-wider text-white">
-                    <!-- CHANGE LOGO HERE -->
-                    PORTFOLIO<span class="text-gray-400">.</span>
-                </a>
-                
-                <!-- Desktop Nav -->
-                <nav class="hidden md:flex gap-6 items-center">
-                    <a href="#home" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Home</a>
-                    <a href="#featured" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Featured</a>
-                    <a href="#videos" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Videos</a>
-                    <a href="#projects" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Projects</a>
-                    <a href="#about" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">About</a>
-                </nav>
-            </div>
+    <header id="header"
+        class="fixed top-0 w-full z-50 transition-all duration-300 py-6 px-6 md:px-12 bg-transparent border-b border-transparent">
+        <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+            <a href="#" class="group flex items-center">
+                <img src="/assets/boxfylogo-D6j1liRc.png" alt="Boxfy AI Logo"
+                    class="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            </a>
 
-            <!-- Right: Actions -->
-            <div class="flex items-center gap-5">
-                <button id="search-btn" class="text-gray-300 hover:text-white transition-colors p-2" aria-label="Search">
-                    <i class="fas fa-search text-lg"></i>
+            <nav
+                class="hidden lg:flex gap-8 items-center bg-white/70 backdrop-blur-md px-8 py-3 rounded-full border border-gray-100 shadow-sm">
+                <a href="#home"
+                    class="nav-link-hover text-sm font-bold text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+                <a href="#featured-section"
+                    class="nav-link-hover text-sm font-bold text-gray-600 hover:text-gray-900 transition-colors">Showcase</a>
+                <a href="#services-section"
+                    class="nav-link-hover text-sm font-bold text-gray-600 hover:text-gray-900 transition-colors">Services</a>
+                <a href="#about-section"
+                    class="nav-link-hover text-sm font-bold text-gray-600 hover:text-gray-900 transition-colors">About</a>
+            </nav>
+
+            <div class="flex items-center gap-6">
+                <button id="search-btn" class="text-gray-700 hover:text-blue-600 transition-colors p-2 text-xl">
+                    <i class="fas fa-search"></i>
                 </button>
-                <div class="hidden md:block w-8 h-8 rounded-full bg-gradient-to-tr from-gray-700 to-gray-400 overflow-hidden cursor-pointer border border-gray-600 hover:border-white transition-all">
-                    <!-- CHANGE PROFILE IMAGE HERE -->
-                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&h=100" alt="Profile" class="w-full h-full object-cover">
-                </div>
-                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white transition-colors p-2">
-                    <i class="fas fa-bars text-xl"></i>
+                <button
+                    class="hidden md:flex bg-gray-900 hover:bg-blue-600 text-white px-7 py-3 rounded-full text-sm font-bold transition-all shadow-md hover:shadow-[0_10px_20px_rgba(37,99,235,0.3)] transform hover:-translate-y-0.5"
+                    onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">
+                    Start a Project
+                </button>
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-900 text-2xl p-2 ml-2">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Search Overlay -->
-    <div id="search-overlay" class="fixed inset-0 bg-black/90 backdrop-blur-md z-[60] flex flex-col pt-24 px-6 md:px-12 opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="flex justify-between items-center mb-8 border-b border-gray-700 pb-4">
-            <input type="text" id="search-input" placeholder="Search videos, projects, categories..." class="w-full bg-transparent text-2xl md:text-4xl text-white outline-none placeholder-gray-600 font-light">
-            <button id="close-search-btn" class="text-gray-400 hover:text-white text-3xl ml-4">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div id="search-results" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 overflow-y-auto pb-12">
-            <!-- Search Results -->
+    <div id="search-overlay"
+        class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[60] flex flex-col pt-24 px-6 md:px-12 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="max-w-[1440px] mx-auto w-full">
+            <div class="flex justify-between items-center mb-8 border-b border-gray-200 pb-6">
+                <input type="text" id="search-input" placeholder="Search projects, services and creative work..."
+                    class="w-full bg-transparent text-3xl md:text-5xl text-gray-900 outline-none placeholder-gray-300 font-black tracking-tight border-none">
+                <button id="close-search-btn" class="text-gray-400 hover:text-gray-900 text-4xl ml-6 transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="search-results"
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 overflow-y-auto pb-12">
+            </div>
         </div>
     </div>
 
     <!-- Mobile Nav -->
-    <div id="mobile-nav" class="fixed inset-0 bg-[#050505] z-40 flex flex-col items-center justify-center translate-y-full transition-transform duration-500 ease-in-out">
-        <nav class="flex flex-col gap-8 text-center">
-            <a href="#home" class="mobile-link text-3xl font-semibold text-gray-400 hover:text-white transition-colors">Home</a>
-            <a href="#featured" class="mobile-link text-3xl font-semibold text-gray-400 hover:text-white transition-colors">Featured</a>
-            <a href="#videos" class="mobile-link text-3xl font-semibold text-gray-400 hover:text-white transition-colors">Videos</a>
-            <a href="#projects" class="mobile-link text-3xl font-semibold text-gray-400 hover:text-white transition-colors">Projects</a>
-            <a href="#about" class="mobile-link text-3xl font-semibold text-gray-400 hover:text-white transition-colors">About</a>
-            <a href="#contact" class="mobile-link text-3xl font-semibold text-gray-400 hover:text-white transition-colors">Contact</a>
+    <div id="mobile-nav"
+        class="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl z-40 flex flex-col pt-28 px-8 translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-y-auto">
+        <nav class="flex flex-col gap-8">
+            <a href="#home"
+                class="mobile-link text-4xl font-black text-gray-900 hover:text-blue-600 transition-colors">Home</a>
+            <a href="#featured-section"
+                class="mobile-link text-4xl font-black text-gray-900 hover:text-blue-600 transition-colors">Showcase</a>
+            <a href="#services-section"
+                class="mobile-link text-4xl font-black text-gray-900 hover:text-blue-600 transition-colors">Services</a>
+            <a href="#about-section"
+                class="mobile-link text-4xl font-black text-gray-900 hover:text-blue-600 transition-colors">About</a>
+            <div class="h-px bg-gray-100 my-4"></div>
+            <button class="bg-blue-600 text-white px-8 py-5 rounded-xl text-lg font-bold shadow-lg"
+                onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">Start a
+                Project</button>
         </nav>
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="relative h-screen w-full flex items-center pt-20 overflow-hidden perspective-1000">
-        <!-- Background Video/Image -->
-        <div class="absolute inset-0 z-0">
-            <!-- CHANGE HERO VIDEO URL HERE -->
-            <video autoplay loop muted playsinline class="w-full h-full object-cover scale-105" poster="https://images.unsplash.com/photo-1550130095-d227b6134b22?auto=format&fit=crop&w=1920&q=80">
-                <!-- Example background video -->
-                <source src="https://cdn.pixabay.com/video/2021/08/04/83896-584706596_large.mp4" type="video/mp4">
-            </video>
-            <!-- Overlay Gradient -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-black/30 mix-blend-multiply"></div>
-            <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#050505] to-transparent"></div>
-        </div>
+    <section id="home" class="w-full h-screen relative bg-gray-900 overflow-hidden">
 
-        <div class="relative z-10 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto w-full">
-            <div class="metadata text-sm md:text-base font-semibold tracking-widest text-[#a8b1ff] mb-4 flex items-center gap-3 opacity-0 translate-y-4">
-                <span class="w-12 h-[2px] bg-[#a8b1ff]"></span> CREATIVE PROFESSIONAL
+        <!-- Hero Background Video -->
+        <video src="/videos/hero-video.mp4" poster="/assets/72caf612-7848-420a-8c93-9ec0a29af043-CFmgNthq.jpeg" autoplay muted
+            loop playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover z-0">
+        </video>
+
+        <!-- Subtle Dark/Transparent Overlay -->
+        <div class="absolute inset-0 bg-black/60 z-0"></div>
+
+        <div class="swiper heroSwiper w-full h-full relative z-10">
+            <div class="swiper-wrapper" id="hero-wrapper">
+                <!-- Slides generated by JS -->
             </div>
-            <h1 class="hero-title text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 opacity-0 translate-y-4">
-                Crafting Visual <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">Masterpieces.</span>
-            </h1>
-            <p class="hero-desc text-lg md:text-xl text-gray-300 max-w-2xl mb-10 opacity-0 translate-y-4 font-light">
-                Award-winning director and UI/UX designer. Explore my portfolio of cinematic videos and premium web experiences.
-            </p>
-            <div class="hero-btns flex flex-col sm:flex-row gap-4 opacity-0 translate-y-4">
-                <a href="#videos" class="group flex items-center justify-center gap-3 bg-white text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
-                    <i class="fas fa-play text-sm group-hover:scale-110 transition-transform"></i> Watch My Work
-                </a>
-                <a href="#projects" class="glass group flex items-center justify-center gap-3 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-colors">
-                    View Projects <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
-                </a>
+            <div class="swiper-pagination !bottom-10 z-20"></div>
+            <div
+                class="swiper-button-next !w-16 !h-16 !bg-white/10 hover:!bg-white/30 backdrop-blur-md rounded-full !text-white border border-white/20 transition-all after:!text-xl hidden md:flex !right-8">
+            </div>
+            <div
+                class="swiper-button-prev !w-16 !h-16 !bg-white/10 hover:!bg-white/30 backdrop-blur-md rounded-full !text-white border border-white/20 transition-all after:!text-xl hidden md:flex !left-8">
             </div>
         </div>
     </section>
 
-    <!-- Categories Filters -->
-    <section class="max-w-[100vw] px-6 md:px-12 py-8 sticky top-16 z-30 bg-[#050505]/80 backdrop-blur-md border-b border-white/5">
-        <div id="category-filters" class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+    <!-- Featured Work Section -->
+    <section id="featured-section" class="py-24 bg-white overflow-hidden relative">
+        <div
+            class="max-w-[1440px] mx-auto px-6 md:px-12 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 animate-on-scroll">
+            <div class="max-w-2xl">
+                <span class="text-blue-600 font-bold tracking-widest text-sm uppercase mb-3 block">Selected Works</span>
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 leading-tight">Featured Work</h2>
+                <p class="text-gray-500 mt-4 text-lg font-medium">Explore selected projects created across animation, AI
+                    filmmaking, immersive experiences and digital storytelling.</p>
+            </div>
+            <a href="#showcase-section"
+                class="text-gray-900 font-bold hover:text-blue-600 transition-colors group flex items-center gap-2 pb-2">
+                View All Projects <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+
+        <div class="pl-6 md:pl-12 flex gap-6 overflow-x-auto no-scrollbar pb-16 snap-x snap-mandatory animate-on-scroll"
+            id="featured-work-container">
             <!-- Rendered by JS -->
         </div>
     </section>
 
-    <!-- Featured Work Row (OTT Style Carousel) -->
-    <section id="featured" class="py-12 pl-6 md:pl-12 overflow-hidden bg-gradient-to-b from-transparent to-[#0a0a0a]">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white flex items-center gap-2">
-            Featured Work <i class="fas fa-chevron-right text-sm text-gray-500"></i>
-        </h2>
-        
-        <div id="featured-container" class="flex gap-6 overflow-x-auto no-scrollbar pb-10 snap-x snap-mandatory">
-            <!-- Cards rendered by JS -->
+    <!-- Complete Showcase / Content Categories -->
+    <section id="showcase-section" class="py-24 bg-white border-t border-gray-100">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 animate-on-scroll">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Our Showcase</h2>
+                    <p class="text-gray-500 font-medium text-lg">Browse our complete collection of premium digital
+                        productions.</p>
+                </div>
+
+                <!-- Filters now scroll horizontally and are aligned well -->
+                <div class="w-full md:w-auto relative">
+                    <!-- Gradient faded edges for scroll indication on mobile -->
+                    <div
+                        class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent md:hidden z-10 pointer-events-none">
+                    </div>
+                    <div id="showcase-filters"
+                        class="flex gap-2 overflow-x-auto no-scrollbar pb-2 pt-2 md:justify-end snap-x snap-mandatory">
+                        <!-- Buttons generated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="showcase-grid" class="w-full transition-all duration-500 min-h-[500px]">
+                <!-- Cards generated by JS -->
+            </div>
+
+            <div class="mt-20 text-center animate-on-scroll">
+                <button
+                    class="bg-white border-2 border-gray-200 text-gray-900 hover:border-gray-900 hover:bg-gray-900 hover:text-white px-10 py-4 rounded-full font-bold transition-all">
+                    Load More Projects
+                </button>
+            </div>
         </div>
     </section>
 
-    <!-- Video Portfolio -->
-    <section id="videos" class="py-16 px-6 md:px-12">
-        <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">Watch My Work</h2>
-        
-        <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- Rendered by JS -->
+    <!-- Services Section -->
+    <section id="services-section" class="py-24 bg-white relative">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+            <div class="mb-20 animate-on-scroll max-w-3xl">
+                <span class="text-blue-600 font-bold tracking-widest text-sm uppercase mb-3 block">Expertise</span>
+                <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">What We Create</h2>
+                <p class="text-gray-500 text-xl font-medium">From concept to final delivery, we build visual experiences
+                    designed for modern global audiences.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card -->
+                <div
+                    class="bg-gray-50 p-10 rounded-[32px] group hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-2xl transition-all duration-500 animate-on-scroll">
+                    <div
+                        class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-gray-900 mb-4">3D Animation</h3>
+                    <p class="text-gray-600 mb-8 font-medium leading-relaxed">Cinematic character animation,
+                        environments and high-end visual storytelling.</p>
+                    <a href="#"
+                        class="text-blue-600 font-bold hover:text-purple-600 transition-colors flex items-center gap-2 group-hover:gap-3">Explore
+                        Service <i class="fas fa-arrow-right text-sm"></i></a>
+                </div>
+                <!-- Service Card -->
+                <div
+                    class="bg-blue-600 text-white p-10 rounded-[32px] group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 animate-on-scroll">
+                    <div
+                        class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4">AI Film Production</h3>
+                    <p class="text-blue-100 mb-8 font-medium leading-relaxed">AI-assisted filmmaking, concept
+                        development and groundbreaking cinematic visuals.</p>
+                    <a href="#" class="text-white font-bold flex items-center gap-2 group-hover:gap-3">Explore Service
+                        <i class="fas fa-arrow-right text-sm"></i></a>
+                </div>
+                <!-- Service Card -->
+                <div
+                    class="bg-gray-50 p-10 rounded-[32px] group hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-2xl transition-all duration-500 animate-on-scroll">
+                    <div
+                        class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-gray-900 mb-4">Game Design</h3>
+                    <p class="text-gray-600 mb-8 font-medium leading-relaxed">Game concepts, environments, characters
+                        and next-gen interactive experiences.</p>
+                    <a href="#"
+                        class="text-purple-600 font-bold hover:text-blue-600 transition-colors flex items-center gap-2 group-hover:gap-3">Explore
+                        Service <i class="fas fa-arrow-right text-sm"></i></a>
+                </div>
+                <!-- Service Card -->
+                <div
+                    class="bg-gray-50 p-10 rounded-[32px] group hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-2xl transition-all duration-500 animate-on-scroll">
+                    <div
+                        class="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fas fa-vr-cardboard"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-gray-900 mb-4">AR / VR</h3>
+                    <p class="text-gray-600 mb-8 font-medium leading-relaxed">Immersive experiences for entertainment,
+                        modern brands and digital products.</p>
+                    <a href="#"
+                        class="text-green-600 font-bold hover:text-blue-600 transition-colors flex items-center gap-2 group-hover:gap-3">Explore
+                        Service <i class="fas fa-arrow-right text-sm"></i></a>
+                </div>
+                <!-- Service Card -->
+                <div
+                    class="bg-gray-50 p-10 rounded-[32px] group hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-2xl transition-all duration-500 animate-on-scroll">
+                    <div
+                        class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-gray-900 mb-4">VFX & Motion</h3>
+                    <p class="text-gray-600 mb-8 font-medium leading-relaxed">High-end visual effects, dynamic motion
+                        graphics and cinematic compositions.</p>
+                    <a href="#"
+                        class="text-orange-600 font-bold hover:text-blue-600 transition-colors flex items-center gap-2 group-hover:gap-3">Explore
+                        Service <i class="fas fa-arrow-right text-sm"></i></a>
+                </div>
+                <!-- Service Card -->
+                <div
+                    class="bg-gray-50 p-10 rounded-[32px] group hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-2xl transition-all duration-500 animate-on-scroll">
+                    <div
+                        class="w-16 h-16 bg-pink-100 text-pink-600 rounded-2xl flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-gray-900 mb-4">Creative Tech</h3>
+                    <p class="text-gray-600 mb-8 font-medium leading-relaxed">Interactive platforms combining
+                        cutting-edge design, technology and storytelling.</p>
+                    <a href="#"
+                        class="text-pink-600 font-bold hover:text-blue-600 transition-colors flex items-center gap-2 group-hover:gap-3">Explore
+                        Service <i class="fas fa-arrow-right text-sm"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Project Showcase -->
-    <section id="projects" class="py-16 px-6 md:px-12 bg-[#0a0a0a]">
-        <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">My Projects</h2>
-        
-        <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Rendered by JS -->
+    <!-- How We Work Process -->
+    <section class="py-24 bg-[#0A0F1E] text-white overflow-hidden border-y border-gray-800">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center animate-on-scroll text-white">From Idea to
+                Experience</h2>
+
+            <div
+                class="relative max-w-5xl mx-auto flex flex-col md:flex-row justify-between gap-10 md:gap-0 animate-on-scroll">
+
+                <!-- Steps Desktop: Horizontal via Flex, Mobile: Vertical via hidden line and flow -->
+
+                <div class="relative flex-1 group">
+                    <div class="timeline-line bg-gray-800"></div>
+                    <div
+                        class="timeline-dot bg-gray-700 transition-transform group-hover:scale-150 group-hover:bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0)] group-hover:shadow-[0_0_15px_rgba(59,130,246,0.8)]">
+                    </div>
+                    <div class="mt-6 md:mt-8 md:pr-4 relative z-10 pl-8 md:pl-0">
+                        <span class="text-blue-500 font-black text-2xl mb-2 block drop-shadow-md">01</span>
+                        <h4 class="text-xl font-bold mb-2 tracking-wide text-white">DISCOVER</h4>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">Understanding the idea, audience
+                            and creative direction.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex-1 group">
+                    <div class="timeline-line bg-gray-800"></div>
+                    <div
+                        class="timeline-dot bg-gray-700 transition-transform group-hover:scale-150 group-hover:bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0)] group-hover:shadow-[0_0_15px_rgba(59,130,246,0.8)]">
+                    </div>
+                    <div class="mt-6 md:mt-8 md:pr-4 relative z-10 pl-8 md:pl-0">
+                        <span class="text-blue-500 font-black text-2xl mb-2 block drop-shadow-md">02</span>
+                        <h4 class="text-xl font-bold mb-2 tracking-wide text-white">CONCEPT</h4>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">Developing visual concepts,
+                            storyboards and strategy.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex-1 group">
+                    <div class="timeline-line bg-gray-800"></div>
+                    <div
+                        class="timeline-dot bg-gray-700 transition-transform group-hover:scale-150 group-hover:bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0)] group-hover:shadow-[0_0_15px_rgba(59,130,246,0.8)]">
+                    </div>
+                    <div class="mt-6 md:mt-8 md:pr-4 relative z-10 pl-8 md:pl-0">
+                        <span class="text-blue-500 font-black text-2xl mb-2 block drop-shadow-md">03</span>
+                        <h4 class="text-xl font-bold mb-2 tracking-wide text-white">CREATE</h4>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">Production across 3D, AI, VFX, and
+                            interactive media.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex-1 group">
+                    <div class="timeline-line bg-gray-800"></div>
+                    <div
+                        class="timeline-dot bg-gray-700 transition-transform group-hover:scale-150 group-hover:bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0)] group-hover:shadow-[0_0_15px_rgba(59,130,246,0.8)]">
+                    </div>
+                    <div class="mt-6 md:mt-8 md:pr-4 relative z-10 pl-8 md:pl-0">
+                        <span class="text-blue-500 font-black text-2xl mb-2 block drop-shadow-md">04</span>
+                        <h4 class="text-xl font-bold mb-2 tracking-wide text-white">REFINE</h4>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">Polishing visuals, motion, sound
+                            and overall experience.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex-1 group">
+                    <div
+                        class="timeline-dot bg-gray-700 transition-transform group-hover:scale-150 group-hover:bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0)] group-hover:shadow-[0_0_15px_rgba(59,130,246,0.8)]">
+                    </div>
+                    <div class="mt-6 md:mt-8 relative z-10 pl-8 md:pl-0">
+                        <span class="text-blue-500 font-black text-2xl mb-2 block drop-shadow-md">05</span>
+                        <h4 class="text-xl font-bold mb-2 tracking-wide text-white">DELIVER</h4>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">Final production optimized for
+                            commercial platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us (Trust) -->
+    <section class="py-24 bg-white border-b border-gray-100">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12 text-center animate-on-scroll">
+            <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-16 max-w-4xl mx-auto leading-tight">Built for
+                the Next Generation of Digital Storytelling</h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 max-w-5xl mx-auto">
+                <div class="p-6">
+                    <div class="text-5xl md:text-6xl font-black text-gray-900 mb-2">50+</div>
+                    <div class="text-gray-500 font-bold uppercase tracking-widest text-sm">Creative Projects</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-5xl md:text-6xl font-black text-gray-900 mb-2">10+</div>
+                    <div class="text-gray-500 font-bold uppercase tracking-widest text-sm">Creative Disciplines</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-5xl md:text-6xl font-black text-gray-900 mb-2">Global</div>
+                    <div class="text-gray-500 font-bold uppercase tracking-widest text-sm">Creative Vision</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-5xl md:text-6xl font-black text-gray-900 mb-2">24/7</div>
+                    <div class="text-gray-500 font-bold uppercase tracking-widest text-sm">Digital Mindset</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Technology Stack -->
+    <section class="py-24 bg-gray-50 relative overflow-hidden">
+        <div
+            class="absolute -top-40 -right-40 w-96 h-96 bg-blue-100 rounded-full blur-[100px] opacity-60 pointer-events-none">
+        </div>
+        <div
+            class="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-100 rounded-full blur-[100px] opacity-60 pointer-events-none">
+        </div>
+
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10 animate-on-scroll text-center">
+            <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-16">Where Creativity Meets Technology</h2>
+
+            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                <span
+                    class="bg-white border border-gray-200 px-8 py-4 rounded-2xl text-lg font-bold text-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-default transform hover:-translate-y-1 duration-300">Artificial
+                    Intelligence</span>
+                <span
+                    class="bg-white border border-gray-200 px-8 py-4 rounded-2xl text-lg font-bold text-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-default transform hover:-translate-y-1 duration-300">3D
+                    Visualization</span>
+                <span
+                    class="bg-white border border-gray-200 px-8 py-4 rounded-2xl text-lg font-bold text-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-default transform hover:-translate-y-1 duration-300">VFX
+                    & Compositing</span>
+                <span
+                    class="bg-white border border-gray-200 px-8 py-4 rounded-2xl text-lg font-bold text-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-default transform hover:-translate-y-1 duration-300">CGI
+                    Production</span>
+                <span
+                    class="bg-white border border-gray-200 px-8 py-4 rounded-2xl text-lg font-bold text-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-default transform hover:-translate-y-1 duration-300">Motion
+                    Design</span>
+                <span
+                    class="bg-white border border-gray-200 px-8 py-4 rounded-2xl text-lg font-bold text-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-default transform hover:-translate-y-1 duration-300">AR
+                    / VR</span>
+                <span
+                    class="bg-white border border-gray-200 px-8 py-4 rounded-2xl text-lg font-bold text-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-default transform hover:-translate-y-1 duration-300">Real-Time
+                    Rendering</span>
+                <span
+                    class="bg-gray-900 px-8 py-4 rounded-2xl text-lg font-bold text-white shadow-lg cursor-default transform hover:-translate-y-1 duration-300">Digital
+                    Storytelling</span>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-24 px-6 md:px-12 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#050505] to-[#111] z-0"></div>
-        <div class="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-center">
-            
-            <div class="w-full md:w-1/2 relative group">
-                <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 rounded-2xl blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <img src="https://images.unsplash.com/photo-1555952517-2e8e729e0b44?auto=format&fit=crop&w=800&q=80" alt="About Me" class="relative rounded-2xl w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700 cinematic-shadow border border-white/10">
+    <section id="about-section" class="py-24 bg-white border-t border-gray-100">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row gap-16 items-center">
+
+            <div class="w-full lg:w-5/12 relative animate-on-scroll">
+                <div class="aspect-[4/5] rounded-[40px] overflow-hidden bg-gray-100 relative group">
+                    <img src="/assets/72caf612-7848-420a-8c93-9ec0a29af043-CFmgNthq.jpeg" alt="Aman Attal - AI & VFX Expert"
+                        class="w-full h-full object-cover transition-transform duration-[10s] group-hover:scale-110">
+                    <div class="absolute inset-0 border-[8px] border-white/20 rounded-[40px] m-4 pointer-events-none">
+                    </div>
+                </div>
             </div>
 
-            <div class="w-full md:w-1/2">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6">Behind the Lens & Screen.</h2>
-                <p class="text-gray-400 mb-6 text-lg font-light leading-relaxed">
-                    I am a multifaceted creative, bridging the gap between cinematic storytelling and interactive digital experiences. With over 6 years of experience, I bring visions to life through a lens and code.
+            <div class="w-full lg:w-7/12 animate-on-scroll">
+                <span class="text-blue-600 font-bold tracking-widest text-sm uppercase mb-3 block">AI & VFX
+                    Expert</span>
+                <h2 class="text-4xl md:text-5xl font-black mb-6 text-gray-900 leading-tight">Meet <br /> <span
+                        class="text-gradient">Aman Attal.</span></h2>
+                <p class="text-gray-600 mb-8 text-xl font-medium leading-relaxed">
+                    Creative Professional at <strong>Morph Meta Academy</strong>. I specialize in helping students and
+                    creative professionals master AI filmmaking, 3D animation, VFX, and digital content creation through
+                    practical, project-based learning.
                 </p>
-                
-                <h3 class="text-xl font-semibold mb-4 text-white">Skills</h3>
-                <div class="flex flex-wrap gap-3">
-                    <span class="glass px-4 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-colors">Cinematography</span>
-                    <span class="glass px-4 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-colors">UI/UX Design</span>
-                    <span class="glass px-4 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-colors">Web Development</span>
-                    <span class="glass px-4 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-colors">Tailwind CSS</span>
-                    <span class="glass px-4 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-colors">Video Editing</span>
-                    <span class="glass px-4 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-colors">Creative Direction</span>
+
+                <!-- Expertise Tags -->
+                <div class="flex flex-wrap gap-2 mb-10">
+                    <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-bold">AI Video
+                        Creation</span>
+                    <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-bold">VFX &
+                        Compositing</span>
+                    <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-bold">3D Animation</span>
+                    <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-bold">Generative
+                        AI</span>
+                    <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-bold">Video
+                        Editing</span>
                 </div>
+
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-1">Professional Focus</h4>
+                            <p class="text-gray-500 font-medium">Training and mentoring the next generation in AI
+                                creative workflows, visual storytelling, and cinematic production.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 shrink-0">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-1">Boxfy Studio</h4>
+                            <p class="text-gray-500 font-medium">Associated production work including AI movies,
+                                cinematic videos, short films, trailers, and character design.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaborations -->
+    <section class="py-24 bg-gray-900 text-white text-center">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12 animate-on-scroll">
+            <h2 class="text-xl font-bold tracking-widest uppercase mb-4 text-gray-400">Creative Collaborations</h2>
+            <p class="text-2xl md:text-3xl font-light max-w-3xl mx-auto leading-relaxed">
+                Working across entertainment, technology, gaming, media and digital experiences for global audiences.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-32 bg-blue-600 text-white relative overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80')] bg-cover opacity-10 mix-blend-overlay">
+        </div>
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12 text-center relative z-10 animate-on-scroll">
+            <h2 class="text-5xl md:text-7xl font-black mb-8 leading-tight">Have an Idea Worth <br /> Bringing to Life?
+            </h2>
+            <p class="text-xl md:text-2xl text-blue-100 font-medium mb-12 max-w-3xl mx-auto">
+                Tell us what you're imagining. We'll help turn the concept into a cinematic, interactive or digital
+                experience.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                    class="bg-gray-900 hover:bg-black text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-xl hover:shadow-2xl"
+                    onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">
+                    Start a Project
+                </button>
+                <button
+                    class="bg-white hover:bg-gray-100 text-blue-600 px-10 py-5 rounded-full font-bold text-lg transition-all shadow-xl"
+                    onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">
+                    Contact Us
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 md:px-12 bg-[#050505]">
-        <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Let's Work Together.</h2>
-            <p class="text-gray-400 text-lg mb-12 max-w-2xl font-light">
-                Have a project in mind? Looking for a creative partner? Let's connect and build something extraordinary.
-            </p>
-            
-            <form id="contact-form" class="w-full glass-card p-8 md:p-12 rounded-3xl text-left space-y-6 cinematic-shadow">
+    <section id="contact-section" class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6 md:px-12 animate-on-scroll">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Let's Connect</h2>
+                <p class="text-gray-500 text-lg font-medium">Reach out to discuss your next big project.</p>
+            </div>
+
+            <form id="contact-form"
+                class="bg-white p-8 md:p-12 rounded-[32px] shadow-sm border border-gray-100 space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-2">
-                        <label class="text-sm text-gray-400 font-medium">Your Name</label>
-                        <input type="text" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="John Doe" required>
+                        <label class="text-sm font-bold text-gray-700">Full Name</label>
+                        <input type="text" id="cf-name"
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                            placeholder="John Doe" required>
                     </div>
                     <div class="space-y-2">
-                        <label class="text-sm text-gray-400 font-medium">Your Email</label>
-                        <input type="email" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="john@example.com" required>
+                        <label class="text-sm font-bold text-gray-700">Email Address</label>
+                        <input type="email" id="cf-email"
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                            placeholder="john@company.com" required>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700">Company / Brand</label>
+                        <input type="text" id="cf-company"
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-gray-900 focus:outline-none focus:border-blue-500 transition-colors"
+                            placeholder="Company Name" required>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700">Project Type</label>
+                        <select id="cf-type"
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-gray-900 focus:outline-none focus:border-blue-500 transition-colors appearance-none"
+                            required>
+                            <option value="">Select a category</option>
+                            <option>3D Animation</option>
+                            <option>AI Film</option>
+                            <option>Game Design</option>
+                            <option>AR / VR</option>
+                            <option>VFX</option>
+                            <option>Motion Design</option>
+                            <option>Other</option>
+                        </select>
                     </div>
                 </div>
                 <div class="space-y-2">
-                    <label class="text-sm text-gray-400 font-medium">Subject</label>
-                    <input type="text" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="Project Inquiry" required>
+                    <label class="text-sm font-bold text-gray-700">Message</label>
+                    <textarea id="cf-message"
+                        class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-gray-900 focus:outline-none focus:border-blue-500 transition-colors h-40 resize-none"
+                        placeholder="Tell us about your project, budget, and timeline..." required></textarea>
                 </div>
-                <div class="space-y-2">
-                    <label class="text-sm text-gray-400 font-medium">Message</label>
-                    <textarea class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/40 transition-colors h-32 resize-none" placeholder="Tell me about your project..." required></textarea>
-                </div>
-                <button type="submit" class="w-full bg-white text-black font-semibold rounded-xl py-4 hover:bg-gray-200 transition-colors text-lg shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-                    Send Message
+                <button type="submit"
+                    class="w-full bg-gray-900 text-white font-bold rounded-xl py-5 hover:bg-blue-600 transition-colors text-lg flex justify-center items-center gap-2">
+                    Submit Inquiry <i class="fas fa-paper-plane"></i>
                 </button>
             </form>
-            
-            <div class="flex gap-6 mt-12">
-                <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                    <i class="fab fa-instagram text-xl"></i>
-                </a>
-                <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                    <i class="fab fa-linkedin-in text-xl"></i>
-                </a>
-                <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-green-500 hover:text-white transition-all shadow-[0_0_15px_rgba(0,0,0,0)] hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]">
-                    <i class="fab fa-whatsapp text-xl"></i>
-                </a>
-            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-white/10 bg-[#020202] text-center md:text-left px-6 md:px-12">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer class="bg-gray-900 text-white pt-20 pb-10 px-6 md:px-12 border-t border-gray-800">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div>
-                <a href="#" class="text-2xl font-bold tracking-wider text-white">PORTFOLIO<span class="text-gray-400">.</span></a>
-                <p class="text-gray-500 text-sm mt-2">© 2026 Studio. All rights reserved.</p>
+                <a href="#" class="block mb-6 group inline-block">
+                    <img src="/assets/boxfylogo-D6j1liRc.png" alt="Boxfy AI Logo"
+                        class="h-12 md:h-16 w-auto object-contain filter brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity">
+                </a>
+                <p class="text-gray-400 font-medium leading-relaxed mb-6">
+                    An international creative technology and digital entertainment studio redefining visual
+                    possibilities via AI and 3D realities.
+                </p>
             </div>
-            
-            <button id="back-to-top" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white hover:text-black transition-all" aria-label="Back to Top">
-                <i class="fas fa-arrow-up"></i>
-            </button>
+
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-white">Explore</h4>
+                <ul class="space-y-4">
+                    <li><a href="#home" class="text-gray-400 hover:text-white transition-colors font-medium">Home</a>
+                    </li>
+                    <li><a href="#showcase-section"
+                            class="text-gray-400 hover:text-white transition-colors font-medium">Showcase</a></li>
+                    <li><a href="#services-section"
+                            class="text-gray-400 hover:text-white transition-colors font-medium">Services</a></li>
+                    <li><a href="#about-section"
+                            class="text-gray-400 hover:text-white transition-colors font-medium">About</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-white">Services</h4>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors font-medium">3D
+                            Animation</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors font-medium">AI Films</a>
+                    </li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors font-medium">Game Design</a>
+                    </li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors font-medium">AR / VR</a>
+                    </li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors font-medium">VFX</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-white">Contact</h4>
+                <ul class="space-y-4">
+                    <li class="text-gray-400 font-medium flex items-center gap-3"><i
+                            class="fas fa-envelope text-blue-500"></i> hello@studio.ai</li>
+                    <li class="text-gray-400 font-medium flex items-center gap-3"><i
+                            class="fas fa-phone text-blue-500"></i> +1 (555) 123-4567</li>
+                    <li class="text-gray-400 font-medium flex items-center gap-3"><i
+                            class="fas fa-map-marker-alt text-blue-500"></i> New York • Los Angeles</li>
+                </ul>
+                <div class="flex gap-4 mt-8">
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-all"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-all"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-all"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="max-w-[1440px] mx-auto border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-medium">
+            <p>© 2026 Studio.AI. All Rights Reserved.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms</a>
+                <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
+            </div>
         </div>
     </footer>
 
-    <!-- Video Player Modal -->
-    <div id="video-modal" class="fixed inset-0 z-[60] bg-black/95 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center px-4 md:px-10">
-        <div class="absolute inset-0 backdrop-blur-xl"></div>
-        <button id="close-video-modal" class="absolute top-6 right-6 text-white/50 hover:text-white text-3xl z-10 transition-colors">
+    <!-- Video Modal Player -->
+    <div id="video-modal"
+        class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-400 flex items-center justify-center px-4 md:px-10 py-10">
+        <button id="close-video-modal" onclick="window.closeVideo()"
+            class="absolute top-6 right-6 text-gray-400 hover:text-white bg-white/10 hover:bg-white/20 w-12 h-12 rounded-full flex items-center justify-center text-xl z-20 transition-all">
             <i class="fas fa-times"></i>
         </button>
-        
-        <div class="relative z-10 w-full max-w-6xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl scale-95 transition-transform duration-300 transform" id="video-modal-content">
-            <video id="modal-video-player" class="w-full h-full object-contain" controls controlsList="nodownload">
-                <source src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+
+        <div class="relative w-full max-w-7xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl scale-95 opacity-0 transition-all duration-500 transform ease-out cinematic-shadow"
+            id="video-modal-content">
+            <iframe id="youtube-player" class="w-full h-full" src="" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
-        
-        <div class="absolute bottom-6 left-6 md:left-10 right-6 md:right-10 z-10 flex flex-col md:flex-row justify-between items-start md:items-end opacity-0 transition-opacity duration-300 translate-y-4" id="video-modal-info">
-            <div>
-                <span id="modal-video-category" class="text-sm text-gray-400 uppercase tracking-wider mb-1 block"></span>
-                <h3 id="modal-video-title" class="text-2xl md:text-4xl font-bold text-white mb-2"></h3>
-                <p id="modal-video-desc" class="text-gray-300 max-w-2xl text-sm md:text-base hidden md:block"></p>
+    </div>
+
+    <!-- Project Detail Modal -->
+    <div id="project-modal"
+        class="fixed inset-0 z-[90] bg-gray-900/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-400 flex items-end justify-center">
+        <!-- Close overlay -->
+        <div class="absolute inset-0 z-0 cursor-pointer" onclick="window.closeProjectModal()"></div>
+
+        <div id="project-modal-content"
+            class="relative z-10 w-full max-w-[1200px] h-[90vh] bg-white rounded-t-[40px] shadow-2xl translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden flex flex-col">
+            <button onclick="window.closeProjectModal()"
+                class="absolute top-6 right-6 text-gray-500 hover:text-gray-900 w-12 h-12 rounded-full flex items-center justify-center text-2xl z-20 bg-white/80 backdrop-blur hover:bg-gray-100 transition-all shadow-sm">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="overflow-y-auto no-scrollbar flex-1 pb-24">
+                <div class="relative w-full h-[40vh] md:h-[60vh] bg-black">
+                    <img id="pm-image" src="" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
+                    <button id="pm-play-btn"
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white text-blue-600 rounded-full flex items-center justify-center text-2xl hover:scale-110 transition-transform shadow-2xl">
+                        <i class="fas fa-play ml-1"></i>
+                    </button>
+                </div>
+
+                <div class="max-w-4xl mx-auto px-6 md:px-12 mt-12">
+                    <div class="flex flex-col md:flex-row gap-12">
+                        <div class="flex-1">
+                            <span id="pm-category"
+                                class="text-blue-600 font-bold tracking-widest text-sm uppercase mb-2 block"></span>
+                            <h2 id="pm-title" class="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
+                            </h2>
+
+                            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-8">OVERVIEW</h4>
+                            <p id="pm-overview" class="text-gray-600 font-medium leading-relaxed"></p>
+                        </div>
+
+                        <div class="md:w-64 shrink-0 bg-gray-50 rounded-2xl p-6 h-fit border border-gray-100">
+                            <div class="mb-6">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">YEAR</span>
+                                <span id="pm-year" class="text-gray-900 font-bold"></span>
+                            </div>
+                            <div class="mb-8">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">TECHNOLOGY</span>
+                                <span id="pm-tech" class="text-gray-900 font-bold leading-tight"></span>
+                            </div>
+
+                            <button id="pm-play-btn-2" onclick="document.getElementById('pm-play-btn').click()"
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-colors shadow-md flex items-center justify-center gap-2">
+                                <i class="fas fa-play"></i> Watch Full Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="./main.js"></script>
 </body>
+
 </html>
