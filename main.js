@@ -139,11 +139,11 @@ function renderFeaturedSection() {
 
     // Pick first 5 items from different categories
     const items = [
-        portfolioItems.find(i => i.category === "3D Animation"),
-        portfolioItems.find(i => i.category === "AI Films"),
-        portfolioItems.find(i => i.category === "Game Design"),
-        portfolioItems.find(i => i.category === "AR / VR"),
-        portfolioItems.find(i => i.category === "Visual Effects")
+        portfolioItems.find(i => i.category === "3D Animation Videos"),
+        portfolioItems.find(i => i.category === "AI Film Videos"),
+        portfolioItems.find(i => i.category === "Game Designing & AR/VR Videos"),
+        portfolioItems.find(i => i.category === "AI Ads Videos"),
+        portfolioItems.find(i => i.category === "Visual Effects") || portfolioItems.find(i => i.category === "Kuku Boy Videos")
     ].filter(Boolean);
 
     let html = '';
