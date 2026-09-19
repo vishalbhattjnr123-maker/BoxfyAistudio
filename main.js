@@ -3,14 +3,14 @@
 // ----------------------------------------------------
 
 const categoriesInfo = [
-    { name: "3D Animation", ids: ["sxDeMNl_oJE", "YIy6woiYaNA", "qk4YkA6-bqg", "iQSLUFBznn8", "INOr9XGpn6Q", "njrXOlSR_h4", "4kEm-IjPF6U"] },
-    { name: "Game Design", ids: ["BgUkkkDhrn4", "foKjCTH-9ek", "2S-hWKWKCYM", "ZjbUBV7ZNqM"] },
-    { name: "AI Films", ids: ["a6wHlKUEAhI", "XdVIl6P6bp8", "2Lvp7mkGQiw", "M1T_dhLSQUc", "GGUliyRDIIU", "EHrXqQiSLz4", "Q1sM7Y1x6vM", "FPhw7cnrx_8", "_eFsn6WP-zQ"] },
-    { name: "AR / VR", ids: ["RJLT5ufp-lU", "WyTZQiu2Y_o", "TMzKgQGsejg", "ljHgYPPLmJc", "tzcBh2hcWRs", "YyJIWVX5sg8", "NAzeTtWdRP4"] }, // repurposed from AI Ads
-    { name: "Digital Experiences", ids: ["b1mrpeXbUeU", "l-f3laQ-0cQ", "ho8A8rqQ7E8"] }, // repurposed
-    { name: "Visual Effects", ids: ["DVjsIHpehqg", "mmXobB1oyk8", "Bqlppjzd_j0", "G5MPZoakvZc", "9wt2VTkDTs8", "shA5t-tUkd0", "9Bx5Ncix_yc", "3CkwKVI_5tw", "aWzf-atmbxY"] }, // repurposed
-    { name: "Motion Design", ids: ["4i9OljtxDGI", "9nHYftnVh8w", "fCtlr_sU7dw", "q9rgQJPZut8", "co9CktsgTeA", "HEMJYxUS03A"] }, // repurposed
-    { name: "Experimental Work", ids: ["ovouArw5GYE", "o8v9Jnxfx6Q", "qJiFp9M8GCE"] } // repurposed
+    { name: "3D Animation Videos", ids: ["sxDeMNl_oJE", "YIy6woiYaNA", "qk4YkA6-bqg", "iQSLUFBznn8", "INOr9XGpn6Q", "njrXOlSR_h4", "4kEm-IjPF6U"] },
+    { name: "Game Designing & AR/VR Videos", ids: ["BgUkkkDhrn4", "foKjCTH-9ek", "2S-hWKWKCYM", "ZjbUBV7ZNqM"] },
+    { name: "AI Film Videos", ids: ["a6wHlKUEAhI", "XdVIl6P6bp8", "2Lvp7mkGQiw", "M1T_dhLSQUc", "GGUliyRDIIU", "EHrXqQiSLz4", "Q1sM7Y1x6vM", "FPhw7cnrx_8", "_eFsn6WP-zQ"] },
+    { name: "AI Ads Videos", ids: ["RJLT5ufp-lU", "WyTZQiu2Y_o", "TMzKgQGsejg", "ljHgYPPLmJc", "tzcBh2hcWRs", "YyJIWVX5sg8", "NAzeTtWdRP4"] },
+    { name: "AI Kids Cartoon", ids: ["b1mrpeXbUeU", "l-f3laQ-0cQ", "ho8A8rqQ7E8"] },
+    { name: "Kuku Boy Videos", ids: ["DVjsIHpehqg", "mmXobB1oyk8", "Bqlppjzd_j0", "G5MPZoakvZc", "9wt2VTkDTs8", "shA5t-tUkd0", "9Bx5Ncix_yc", "3CkwKVI_5tw", "aWzf-atmbxY"] },
+    { name: "AI Music Videos", ids: ["4i9OljtxDGI", "9nHYftnVh8w", "fCtlr_sU7dw", "q9rgQJPZut8", "co9CktsgTeA", "HEMJYxUS03A"] },
+    { name: "Mahabharat AI Videos", ids: ["ovouArw5GYE", "o8v9Jnxfx6Q", "qJiFp9M8GCE"] }
 ];
 
 const portfolioItems = [];
@@ -211,29 +211,22 @@ function renderShowcase(filter) {
     const grid = document.getElementById('showcase-grid');
     if (!grid) return;
 
-    // Function to render a beautiful individual card
+    // Function to render an iframe video card
     const createCard = (item) => `
-        <div class="group cursor-pointer flex flex-col gap-3 relative h-full w-full snap-center" onclick='window.openProjectModal(${item.id})'>
-            <div class="w-full aspect-video rounded-2xl overflow-hidden relative premium-hover-lift bg-[#151D66]/75 shadow-sm border border-white/15">
-                <img src="${item.thumbnail}" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                
-                <!-- Gradient for bottom text readability & play button contrast -->
-                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
-                
-                <!-- Always-visible, elegant Play Button -->
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-[0_4px_15px_rgba(0,0,0,0.2)] transform group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300 z-10" onclick='event.stopPropagation(); window.openVideo("${item.youtubeId}")'>
-                        <i class="fas fa-play ml-1 text-lg"></i>
-                    </div>
-                </div>
-
-                <!-- Durations and Tags -->
-                <div class="absolute bottom-3 right-3 bg-blue-600/90 backdrop-blur px-2 py-1 rounded-md text-[10px] font-bold text-white shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">02:45</div>
-                <div class="absolute top-3 left-3 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black text-white uppercase tracking-widest shadow-sm border border-white/20">${item.category}</div>
+        <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 bg-white">
+            <div class="w-full aspect-video relative bg-gray-100">
+                <iframe
+                    src="https://www.youtube.com/embed/${item.youtubeId}"
+                    title="${item.category} Video"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    class="absolute inset-0 w-full h-full border-none">
+                </iframe>
             </div>
-            <div class="px-1 flex-1 mt-2">
-                <h4 class="text-base font-black text-gray-900 leading-snug group-hover:text-blue-600 transition-colors line-clamp-2">${item.title}</h4>
-                <p class="text-xs font-medium text-[#64748B] mt-1 line-clamp-1">${item.overview}</p>
+            <!-- Displaying the title below so the video container looks like a premium card -->
+            <div class="p-4 bg-white relative z-0">
+                <h4 class="text-sm font-bold text-gray-900 leading-snug line-clamp-1">${item.title}</h4>
             </div>
         </div>
     `;
@@ -241,39 +234,33 @@ function renderShowcase(filter) {
     let html = '';
 
     if (filter === "ALL") {
-        // Netflix-style horizontal rows for each category
+        // Render each category as its own distinct section block
         categoriesInfo.forEach(cat => {
             const catItems = portfolioItems.filter(i => i.category === cat.name);
             if (catItems.length === 0) return;
 
             html += `
-            <div class="mb-10 w-full">
-                <div class="flex justify-between items-end mb-4 pr-4">
-                    <h3 class="text-xl font-black text-[#111827] tracking-tight">${cat.name}</h3>
-                    <button class="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors" onclick="document.querySelector('[data-filter=\\'${cat.name.toUpperCase()}\\']').click()">View All <i class="fas fa-chevron-right text-xs ml-1"></i></button>
+            <div class="mb-16 w-full">
+                <div class="flex justify-between items-end mb-6 pr-4 border-b border-gray-100 pb-2">
+                    <h3 class="text-2xl font-black text-[#111827] tracking-tight">${cat.name}</h3>
                 </div>
-                <div class="flex gap-4 overflow-x-auto no-scrollbar pb-6 snap-x snap-mandatory">
-                    ${catItems.map(item => `
-                        <div class="flex-none w-[75vw] sm:w-[280px] md:w-[320px]">
-                            ${createCard(item)}
-                        </div>
-                    `).join('')}
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                    ${catItems.map(item => createCard(item)).join('')}
                 </div>
             </div>
             `;
         });
     } else {
-        // Standard grid for specific category
-        const filterRegex = new RegExp(filter, 'i');
+        // Standard grid for specific category filter
         const items = portfolioItems.filter(i => i.category.toUpperCase() === filter);
 
         if (items.length === 0) {
-            grid.innerHTML = `<div class="col-span-full py-12 text-center text-[#64748B] font-medium text-lg">No projects found.</div>`;
+            grid.innerHTML = `<div class="col-span-full py-12 text-center text-[#64748B] font-medium text-lg">No projects found for this category.</div>`;
             return;
         }
 
         html += `
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 gap-y-10 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-10 w-full mb-12">
             ${items.map(item => createCard(item)).join('')}
         </div>
         `;
